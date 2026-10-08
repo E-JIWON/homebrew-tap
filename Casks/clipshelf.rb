@@ -7,7 +7,7 @@ cask "clipshelf" do
   desc "Clipboard shelf on the edge of your Mac screen"
   homepage "https://github.com/E-JIWON/clipshelf"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "ClipShelf.app"
 
