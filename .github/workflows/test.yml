@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  capywork:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use this checkout as e-jiwon/tap
+        run: |
+          TAP="$(brew --repository)/Library/Taps/e-jiwon/homebrew-tap"
+          mkdir -p "$(dirname "$TAP")" && rm -rf "$TAP" && ln -s "$GITHUB_WORKSPACE" "$TAP"
+      - run: brew install --build-from-source --verbose e-jiwon/tap/capywork
+      - run: brew test e-jiwon/tap/capywork
+      - run: brew audit --strict e-jiwon/tap/capywork
+      - name: capywork-setup and --uninstall in a scratch home
+        run: |
+          export HOME="$RUNNER_TEMP/home" && mkdir -p "$HOME"
+          capywork-setup
+          jq -e '.hooks.Stop[0].hooks[0].command | contains(".capywork/hook.sh")' "$HOME/.claude/settings.json"
+          grep -q "/opt/capywork/CapyWork.app" "$HOME/Library/LaunchAgents/com.capywork.plist"
+          capywork-setup --uninstall
+          jq -e '.hooks == null' "$HOME/.claude/settings.json"
