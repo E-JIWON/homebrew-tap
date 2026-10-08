@@ -1,8 +1,8 @@
 class Capywork < Formula
   desc "Menu bar capybaras showing what each Claude Code session is doing"
   homepage "https://github.com/E-JIWON/capywork"
-  url "https://github.com/E-JIWON/capywork/releases/download/v1.1.0/capywork-1.1.0.tar.gz"
-  sha256 "347bd4d05f67d0f9c5be1211c035c9a98528e9cf1d545b7350712f76d2de0d71"
+  url "https://github.com/E-JIWON/capywork/releases/download/v1.1.1/capywork-1.1.1.tar.gz"
+  sha256 "f6dc8dbec35c55ce8e642bacce0e873fa997c1ad55efcf1513844a63a20d39b4"
   license "MIT"
 
   depends_on macos: :sequoia
