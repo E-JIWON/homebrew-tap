@@ -16,6 +16,5 @@ cask "clipshelf" do
   caveats <<~EOS
     ClipShelf is not notarized. If macOS blocks it on first launch, run:
       xattr -cr "#{appdir}/ClipShelf.app"
-    or install with: brew install --cask --no-quarantine e-jiwon/tap/clipshelf
   EOS
 end
