@@ -25,3 +25,21 @@ jobs:
           grep -q "/opt/capywork/CapyWork.app" "$HOME/Library/LaunchAgents/com.capywork.plist"
           capywork-setup --uninstall
           jq -e '.hooks == null' "$HOME/.claude/settings.json"
+
+  hugwatch:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use this checkout as e-jiwon/tap
+        run: |
+          TAP="$(brew --repository)/Library/Taps/e-jiwon/homebrew-tap"
+          mkdir -p "$(dirname "$TAP")" && rm -rf "$TAP" && ln -s "$GITHUB_WORKSPACE" "$TAP"
+      - run: brew style --cask e-jiwon/tap/hugwatch
+      - run: brew audit --cask --strict --online e-jiwon/tap/hugwatch
+      - run: brew install --cask e-jiwon/tap/hugwatch
+      - name: quarantine removed + selftest
+        run: |
+          test -d /Applications/HugWatch.app
+          if xattr -p com.apple.quarantine /Applications/HugWatch.app 2>/dev/null; then echo "still quarantined"; exit 1; fi
+          /Applications/HugWatch.app/Contents/MacOS/HugWatch --selftest
+      - run: brew uninstall --cask e-jiwon/tap/hugwatch
