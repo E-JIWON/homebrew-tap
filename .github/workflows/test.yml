@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+# 러너 공용 IP 의 GitHub API 한도(60/시간)에 걸려 audit 이 실패하지 않게
+env:
+  HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+
 jobs:
   capywork:
     runs-on: macos-15
