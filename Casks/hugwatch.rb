@@ -1,6 +1,6 @@
 cask "hugwatch" do
-  version "0.1.2"
-  sha256 "46c134726ac9afcaaf5eb4c20227bf485261c97eb3da1cc623c37478b1440cc9"
+  version "0.1.3"
+  sha256 "d17395e56de055c60d526a5a602d4a745748e6647d2ba05a9187af1ad787fdeb"
 
   url "https://github.com/E-JIWON/hugwatch/releases/download/v#{version}/HugWatch-mac.zip"
   name "HugWatch"
