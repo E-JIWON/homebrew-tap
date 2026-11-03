@@ -3,6 +3,7 @@ class Frost < Formula
   homepage "https://github.com/E-JIWON/frost"
   url "https://github.com/E-JIWON/frost/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "182d4e3cb8aeb73eff131d261f5d7cb188a55346fc93a101024f0174552b5381"
+  license "MIT"
 
   depends_on macos: :sonoma
 
