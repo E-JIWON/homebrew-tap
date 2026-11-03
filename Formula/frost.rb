@@ -1,8 +1,8 @@
 class Frost < Formula
   desc "Menu bar app that keeps the front window sharp and frosts everything behind it"
   homepage "https://github.com/E-JIWON/frost"
-  url "https://github.com/E-JIWON/frost/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "182d4e3cb8aeb73eff131d261f5d7cb188a55346fc93a101024f0174552b5381"
+  url "https://github.com/E-JIWON/frost/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "ae486b36e3f69ecb9fd275138462520edeba0e92721ef4da34f8fe3e3d99ead1"
   license "MIT"
 
   depends_on macos: :sonoma
@@ -20,7 +20,8 @@ class Frost < Formula
         brew trust --formula e-jiwon/tap/frost
       After `brew upgrade frost`, quit Frost from its panel and open it again.
       Each build is signed anew, so if keyboard window switches lag after an upgrade,
-      run `tccutil reset Accessibility local.frost`, open Frost and allow it again.
+      run `tccutil reset Accessibility local.frost`, open Frost and allow it again
+      from its panel (손쉬운 사용 권한 → 허용).
     EOS
   end
 
