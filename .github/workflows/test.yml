@@ -18,6 +18,7 @@ jobs:
         run: |
           TAP="$(brew --repository)/Library/Taps/e-jiwon/homebrew-tap"
           mkdir -p "$(dirname "$TAP")" && rm -rf "$TAP" && ln -s "$GITHUB_WORKSPACE" "$TAP"
+          brew trust e-jiwon/tap  # Homebrew 6+ refuses to read an untrusted tap's formulae and casks
       - run: brew install --build-from-source --verbose e-jiwon/tap/capywork
       - run: brew test e-jiwon/tap/capywork
       - run: brew audit --strict e-jiwon/tap/capywork
@@ -38,6 +39,7 @@ jobs:
         run: |
           TAP="$(brew --repository)/Library/Taps/e-jiwon/homebrew-tap"
           mkdir -p "$(dirname "$TAP")" && rm -rf "$TAP" && ln -s "$GITHUB_WORKSPACE" "$TAP"
+          brew trust e-jiwon/tap  # Homebrew 6+ refuses to read an untrusted tap's formulae and casks
       - run: brew style --cask e-jiwon/tap/hugwatch
       - run: brew audit --cask --strict --online e-jiwon/tap/hugwatch
       - run: brew install --cask e-jiwon/tap/hugwatch
@@ -47,3 +49,17 @@ jobs:
           if xattr -p com.apple.quarantine /Applications/HugWatch.app 2>/dev/null; then echo "still quarantined"; exit 1; fi
           /Applications/HugWatch.app/Contents/MacOS/HugWatch --selftest
       - run: brew uninstall --cask e-jiwon/tap/hugwatch
+
+  frost:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use this checkout as e-jiwon/tap
+        run: |
+          TAP="$(brew --repository)/Library/Taps/e-jiwon/homebrew-tap"
+          mkdir -p "$(dirname "$TAP")" && rm -rf "$TAP" && ln -s "$GITHUB_WORKSPACE" "$TAP"
+          brew trust e-jiwon/tap  # Homebrew 6+ refuses to read an untrusted tap's formulae and casks
+      - run: brew install --build-from-source --verbose e-jiwon/tap/frost
+      - run: brew test e-jiwon/tap/frost
+      - run: brew audit --strict --online e-jiwon/tap/frost
+      - run: brew uninstall e-jiwon/tap/frost
