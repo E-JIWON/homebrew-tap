@@ -1,8 +1,8 @@
 class Frost < Formula
   desc "Menu bar app that keeps the front window sharp and frosts everything behind it"
   homepage "https://github.com/E-JIWON/frost"
-  url "https://github.com/E-JIWON/frost/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "ae486b36e3f69ecb9fd275138462520edeba0e92721ef4da34f8fe3e3d99ead1"
+  url "https://github.com/E-JIWON/frost/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "4b8cc8dffb53ea74ad6aa93138753a967ffdfe3e82402a54f1a6c0b4df57ca47"
   license "MIT"
 
   depends_on macos: :sonoma
