@@ -3,6 +3,7 @@
 ```bash
 brew install --cask e-jiwon/tap/clipshelf
 brew install --cask e-jiwon/tap/hugwatch
+brew install --cask e-jiwon/tap/tadak
 brew install e-jiwon/tap/capywork && capywork-setup
 brew install e-jiwon/tap/frost
 ```
@@ -11,6 +12,7 @@ brew install e-jiwon/tap/frost
 | --- | --- |
 | `clipshelf` (cask) | [ClipShelf](https://github.com/E-JIWON/clipshelf) — clipboard shelf on the edge of your Mac screen |
 | `hugwatch` (cask) | [HugWatch](https://github.com/E-JIWON/hugwatch) — menu bar watcher for PR reviews, Jira assignments, branch merges and mail |
+| `tadak` (cask) | [Tadak](https://github.com/E-JIWON/tadak) — 메뉴 막대에서 키보드·마우스 타건음을 내 주는 앱 |
 | `capywork` (formula) | [CapyWork](https://github.com/E-JIWON/capywork) — menu bar capybaras for your Claude Code sessions. Builds from source (needs Xcode Command Line Tools), so no Gatekeeper prompt |
 | `frost` (formula) | [Frost](https://github.com/E-JIWON/frost) — keeps the front window sharp and frosts everything behind it. Builds from source (needs Xcode Command Line Tools), so no Gatekeeper prompt |
 
